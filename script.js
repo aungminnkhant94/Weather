@@ -55,7 +55,7 @@ function showError (error) {
 }
 
 function getSearchWeather(city) {
-    let api =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+    let api =`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
 
     fetch(api) .then(function(response) {
         let data = response.json()
@@ -75,7 +75,7 @@ function getSearchWeather(city) {
 }
 
 function getWeather(latitude,longitude) {
-    let api =`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}*appid=${key}`;
+    let api =`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}*appid=${key}`;
     
     fetch(api) .then(function(response) {
         let data = response.json()
@@ -95,7 +95,7 @@ function getWeather(latitude,longitude) {
 }
 
 function displayWeather() { 
-    iconElement.innerHTML = `<img src ="icons/${weather.icon}.png"/>`
+    iconElement.innerHTML = `<img src ="icons/${weather.iconId}.png"/>`
     tempElement.innerHTML = `${weather.temperature.value} * <span>C</span>`
     descElement.innerHTML = weather.description
     locationElement.innerHTML = `${weather.city} , ${weather.country}`
